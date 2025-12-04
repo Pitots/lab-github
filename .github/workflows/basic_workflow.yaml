@@ -1,3 +1,4 @@
+
 name: Basic workflow
 
 on:
@@ -9,5 +10,9 @@ jobs:
   basic-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello world
-        run: echo "Hello, world!"
+      - name: Clone the repo
+        uses: actions/checkout@v4
+      - name: Install g++
+        run: sudo apt install gcc
+      - name: Compile the file
+        run: g++ file.cpp
